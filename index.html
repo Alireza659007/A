@@ -1,113 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>والت لوکس | بازی انفجار، ارز دیجیتال، مدیریت</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div id="app">
-    <!-- صفحه ورود -->
-    <section id="loginBox" class="card">
-      <h1>ورود به والت لوکس</h1>
-      <input type="text" id="username" placeholder="نام کاربری" autocomplete="off" />
-      <input type="password" id="password" placeholder="رمز عبور" autocomplete="off" />
-      <button onclick="login()">ورود</button>
-      <div class="theme-switcher">
-        <span>تم:</span>
-        <button onclick="setTheme('girl')">دخترانه 💖</button>
-        <button onclick="setTheme('boy')">پسرانه ⚡</button>
-      </div>
-      <div id="loginError" class="error"></div>
-    </section>
-
-    <!-- داشبورد -->
-    <section id="dashboard" class="card hidden">
-      <h2 id="welcome"></h2>
-      <p>موجودی: <span id="balance">0</span> تومان</p>
-      <input type="number" id="betAmount" placeholder="مقدار شرط" min="1000" />
-      <button onclick="placeBet()">ثبت شرط</button>
-
-      <section class="transfer-money">
-        <h3>انتقال پول 💸</h3>
-        <input type="text" id="transferUser" placeholder="نام کاربر مقصد" autocomplete="off" />
-        <input type="number" id="transferAmount" placeholder="مقدار انتقال" min="1000" />
-        <button onclick="transferMoney()">انتقال</button>
-        <div id="transferMsg" class="info"></div>
-      </section>
-
-      <section class="features">
-        <button onclick="showExchange()">💱 ارز دیجیتال</button>
-        <button onclick="showCrashGame()">🔥 بازی انفجار</button>
-        <button onclick="showAdminPanel()">🛠️ پنل مدیریت</button>
-      </section>
-
-      <h3>جدول برترین‌ها 🏆</h3>
-      <ul id="leaderboard"></ul>
-    </section>
-
-    <!-- پنل خرید و فروش ارز دیجیتال -->
-    <section id="exchangePanel" class="card hidden">
-      <h2>مدیریت ارز دیجیتال</h2>
-      <select id="cryptoSelect">
-        <option value="BTC">Bitcoin</option>
-        <option value="ETH">Ethereum</option>
-        <option value="DOGE">Dogecoin</option>
-        <option value="ADA">Cardano</option>
-        <option value="XRP">Ripple</option>
-      </select>
-      <input type="number" id="cryptoAmount" placeholder="مقدار (مثلاً 0.01)" step="any" min="0.0001" />
-      <button onclick="buyCrypto()">خرید</button>
-      <button onclick="sellCrypto()">فروش</button>
-      <button onclick="backToDashboard()">بازگشت</button>
-      <div id="cryptoMsg" class="info"></div>
-      <h4>کیف پول شما:</h4>
-      <ul id="cryptoWallet"></ul>
-    </section>
-
-    <!-- بازی انفجار -->
-    <section id="crashPanel" class="card hidden">
-      <h2>🔥 بازی انفجار پیشرفته</h2>
-      <canvas id="crashCanvas" width="600" height="300"></canvas>
-      <div class="crash-controls">
-        <input type="number" id="crashBet" placeholder="مقدار شرط" min="1000" />
-        <input type="number" id="autoCashout" placeholder="ضریب برداشت خودکار (مثلاً 2.0)" step="0.1" min="1.1" />
-        <button onclick="startCrash()">شروع بازی</button>
-        <button onclick="backToDashboard()">بازگشت</button>
-      </div>
-      <div id="crashStatus"></div>
-    </section>
-
-    <!-- پنل مدیریت -->
-    <section id="adminPanel" class="card hidden">
-      <h2>پنل مدیریت</h2>
-      <input type="password" id="adminPassword" placeholder="رمز پنل مدیریت" autocomplete="off" />
-      <button onclick="adminLogin()">ورود به پنل مدیریت</button>
-
-      <div id="adminContent" class="hidden">
-        <input type="text" id="targetUser" placeholder="نام کاربر" autocomplete="off" />
-        <input type="number" id="chargeAmount" placeholder="مقدار شارژ" min="1000" />
-        <button onclick="chargeUser()">شارژ حساب</button>
-
-        <h3>قیمت ارزها (تومان)</h3>
-        <div class="crypto-prices">
-          <label>BTC: <input type="number" id="btcPrice" step="1000" min="0" /></label>
-          <label>ETH: <input type="number" id="ethPrice" step="1000" min="0" /></label>
-          <label>DOGE: <input type="number" id="dogePrice" step="10" min="0" /></label>
-          <label>ADA: <input type="number" id="adaPrice" step="10" min="0" /></label>
-          <label>XRP: <input type="number" id="xrpPrice" step="10" min="0" /></label>
-        </div>
-        <button onclick="updatePrices()">ذخیره قیمت‌ها</button>
-        <button onclick="logoutAdmin()">خروج از پنل مدیریت</button>
-      </div>
-
-      <button onclick="backToDashboard()">بازگشت</button>
-      <div id="adminMsg" class="info"></div>
-    </section>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
