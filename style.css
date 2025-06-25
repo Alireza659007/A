@@ -1,0 +1,214 @@
+/* Reset پایه */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: linear-gradient(135deg, #232526, #1c1c1c);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  background: #121212cc;
+  border-radius: 12px;
+  padding: 30px 40px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow:
+    0 0 10px #FF3366,
+    0 0 20px #FF3366,
+    0 0 30px #FF3366,
+    0 0 40px #FF3366;
+  animation: fadeIn 1s ease forwards;
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 0 8px #ff2e63;
+}
+
+input, select, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0 20px 0;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input:focus, select:focus {
+  box-shadow: 0 0 8px #ff2e63;
+}
+
+button {
+  background: #ff2e63;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  transition: background 0.4s ease;
+  user-select: none;
+}
+
+button:hover {
+  background: #ff5a8e;
+}
+
+.error {
+  color: #ff0033;
+  text-align: center;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.info {
+  color: #00ffea;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* تم دخترانه */
+body.theme-girl {
+  background: linear-gradient(135deg, #ff99cc, #ff66b2);
+  color: #fff;
+}
+body.theme-girl .card {
+  background: #ffe0f0cc;
+  box-shadow:
+    0 0 15px #ff66b2,
+    0 0 25px #ff66b2,
+    0 0 35px #ff66b2;
+  color: #59003d;
+}
+body.theme-girl input, body.theme-girl select {
+  background: #ffccdd;
+  color: #59003d;
+}
+body.theme-girl button {
+  background: #cc3388;
+  color: #fff;
+}
+body.theme-girl button:hover {
+  background: #e051a5;
+}
+
+/* تم پسرانه */
+body.theme-boy {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+body.theme-boy .card {
+  background: #101820cc;
+  box-shadow:
+    0 0 15px #00ffc8,
+    0 0 25px #00ffc8,
+    0 0 35px #00ffc8;
+  color: #00ffc8;
+}
+body.theme-boy input, body.theme-boy select {
+  background: #123c44;
+  color: #00ffc8;
+}
+body.theme-boy button {
+  background: #00ffc8;
+  color: #101820;
+}
+body.theme-boy button:hover {
+  background: #00e0b0;
+}
+
+/* جدول برترین‌ها */
+#leaderboard {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ff2e63;
+  border-radius: 8px;
+  background: #222;
+}
+#leaderboard li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ff2e63;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+#leaderboard li:last-child {
+  border-bottom: none;
+}
+
+/* بخش‌های بازی انفجار */
+#crashCanvas {
+  display: block;
+  margin: 0 auto 20px auto;
+  border: 2px solid #ff2e63;
+  border-radius: 12px;
+  background: #000;
+}
+
+.crash-controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.crash-controls input {
+  max-width: 150px;
+}
+
+/* انیمیشن fadeIn */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* تم مدیریت */
+#adminContent {
+  margin-top: 20px;
+}
+
+.crypto-prices label {
+  display: block;
+  margin: 8px 0;
+  color: inherit;
+}
+.crypto-prices input {
+  width: 100px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* دکمه‌ها در حالت غیرفعال */
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
